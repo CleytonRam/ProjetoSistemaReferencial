@@ -1,58 +1,60 @@
 ---
-title: "Requisitos — Sistema de Indicação (MVP, SPA)"
+title: "Requisitos — Sistema de Indicação (MVP)"
 owner: "product-engineering"
 status: "draft"
-last_review: "2025-10-02"
+last_review: "2025-10-03"
 ---
 
 ## 1. Escopo
-**SPA** (HTML/JS/CSS) que consome API C# (JWT + MySQL). Rotas por **hash**:
-- `#/register` (pública)
-- `#/profile` (protegida; exige JWT)
-- (default) redirect para `#/register`
+Criar uma **SPA simples** (HTML/JS/CSS) integrada a uma **API ASP.NET Core Web API** (C# + EF Core + **SQL Server**) para **cadastro, login** e **perfil** com **pontuação por indicação** via link único.
 
 ## 2. Funcionais
-
-### F1. Cadastro de usuário (SPA)
-- Form: `name`, `email`, `password`
-- Validações no front (email válido; senha ≥ 8 c/ letras e números)
-- Se `#/register?ref=CODE` presente → enviar `?ref=CODE` para a API
+### F1. Cadastro de usuário
+- Campos: `name`, `email`, `password`
+- Gera `refCode` único ao criar usuário (ex.: `8 char alfanumérico`)
+- Se cadastro vier com `?ref=CODE` válido → incrementar `points` do indicador
 **Aceitação**
-- Mensagens inline em erros
-- Sucesso → login automático e redirect para `#/profile`
+- E-mail inválido/duplicado bloqueia cadastro (mensagem clara)
+- Senha ≥ 8 caracteres com letras e números
+- Sucesso → redireciona para `/profile`
 
-### F2. Login (SPA)
+### F2. Login
 - Autenticação por `email + password`
-- Salvar JWT em `localStorage`
+- Retorna **JWT** e dados básicos
 **Aceitação**
-- Erro 401 mostra feedback e mantém na rota atual
+- Credenciais inválidas → 401 com mensagem amigável
+- Token armazenado (localStorage) e usado nas chamadas autenticadas
 
-### F3. Perfil (SPA)
-- Exibir `name`, `points`, `refLink = {ORIGIN}/#/register?ref={refCode}`
-- Botão **Copiar link** com feedback
+### F3. Perfil
+- Exibir `name`, `points`, `refLink = {ORIGIN}/register?ref={refCode}`
+- Botão **Copiar Link**
 **Aceitação**
-- Dados atualizados após reload
-- Guard de rota: sem token → redirect `#/register`
+- Copiar link dá feedback visual
+- `points` corresponde ao persistido após recarregar
 
-### F4. Navegação e Router
-- Navegação sem recarregar a página (hashchange)
-- Rotas: `#/register`, `#/profile`, 404 mínima → redirect `#/register`
-
-### F5. Responsividade
-- 360–1440px; sem overflow horizontal
+### F4. Responsividade
+- Layout adaptado 360–1440px
+**Aceitação**
+- Sem overflow horizontal; inputs e botões acessíveis em mobile
 
 ## 3. Não-funcionais
-- Front sem frameworks de UI/CSS
-- Router simples (hash) para evitar config de servidor
-- CORS: liberar origem do front
-- Swagger ativo + `.http` para testes
+- **API**: .NET 8 + EF Core + **SQL Server**; **bcrypt** para hash; **JWT**
+- **Front**: HTML/JS/CSS puro (sem frameworks de UI)
+- **Segurança**: validação server-side; CORS habilitado para o front
+- **DevX**: Swagger habilitado; arquivo `.http` para testes
 
-## 4. Endpoints
-`POST /auth/register` (+ `?ref=CODE`)  
-`POST /auth/login`  
-`GET /me` (Bearer)
+## 4. Modelo de dados (mínimo)
+`User(id, name, email*, passwordHash, refCode*, points:int=0, referredById?:id)`
 
-## 5. Métricas
-- Conclusão de cadastro
-- Indicações válidas/usuário
-- Zero frameworks de UI
+## 5. Endpoints
+- `POST /auth/register { name, email, password }` (opcional `?ref=CODE`)
+- `POST /auth/login { email, password }`
+- `GET /me` (Bearer JWT)
+
+## 6. Métricas de sucesso
+- Taxa de conclusão de cadastro
+- Nº de indicações válidas por usuário
+- Zero frameworks de UI/CSS utilizados
+
+## 7. Fora de escopo (MVP)
+- Recuperação de senha, refresh token, perfis de admin, ranking público

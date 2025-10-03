@@ -25,7 +25,7 @@ tags: [overview, onboarding, mvp, spa]
 ## 2) Arquitetura em 5 minutos
 
 **Fluxo alto nível**
- Usuário → Front SPA (HTML/JS/CSS) → HTTP JSON → API C# → MySQL
+ Usuário → Front SPA (HTML/JS/CSS) → HTTP JSON → API C# → SQL Server
 
 - **Front SPA**: views renderizadas em runtime dentro de `#app`, rotas por hash.
 - **API**: `POST /auth/register`, `POST /auth/login`, `GET /me`.

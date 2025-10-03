@@ -1,20 +1,21 @@
 ---
-title: "ADR-0001 — Escolhas Técnicas (SPA)"
+title: "ADR-0001 — Escolhas Técnicas"
 owner: "tech-lead"
 status: "draft"
-last_review: "2025-10-02"
+last_review: "2025-10-03"
 ---
 
 ## Decisão
-- **Front**: SPA **vanilla JS** (ES modules) com **hash router** (`#/route`) — zero frameworks
-- **API**: ASP.NET Core Web API (.NET 8)
-- **DB**: MySQL 8 + EF Core
-- **Auth**: JWT; senhas com hash (ex.: PBKDF2 nativo do .NET)
+- **API**: ASP.NET Core Web API (.NET 8) pela rapidez, tooling e Swagger nativo
+- **Persistência**: **SQL Server** (SQL Server 2022 local) com **EF Core** (migrations)
+- **Auth**: JWT + hash de senha com bcrypt
+- **Front**: HTML + JS + CSS (sem frameworks)
 
-## Justificativa
-- Prazo curto: hash router evita configuração de servidor/rewrites
-- Simplicidade e controle total do DOM para o MVP
+## Alternativas consideradas
+- MySQL 8 (familiaridade prévia, porém padronizamos no ecossistema Microsoft)
+- ASP.NET Identity (mais robusto que o necessário para o MVP)
+- Frameworks CSS (evitar para cumprir requisito de simplicidade)
 
 ## Consequências
-- Código front minimalista, fácil de revisar
-- Possível migração futura para framework sem reescrever API
+- Entrega rápida mantendo EF Core
+- Migrations estáveis via `Microsoft.EntityFrameworkCore.SqlServer`

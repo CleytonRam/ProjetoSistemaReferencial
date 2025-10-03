@@ -1,4 +1,4 @@
-namespace api
+namespace ReferralApi
 {
     public class WeatherForecast
     {
