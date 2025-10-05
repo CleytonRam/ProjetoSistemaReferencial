@@ -12,7 +12,7 @@ using ReferralApi.Data;
 namespace ReferralApi.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251003204451_InitialCreate")]
+    [Migration("20251005055656_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
