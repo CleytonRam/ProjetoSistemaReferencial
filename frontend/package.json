@@ -1,0 +1,26 @@
+{
+  "name": "sistema-indicacao",
+  "version": "1.0.0",
+  "description": "Frontend para o sistema de indicação de processo seletivo VORTEX",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint . --ext .js,.ts,.vue",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "serve": "vite preview --port 4173"
+  },
+  "devDependencies": {
+    "sass": "^1.93.2",
+    "sass-embedded": "^1.93.2",
+    "vite": "^7.1.9"
+  },
+  "keywords": [
+    "spa",
+    "vanilla-js",
+    "referral-system"
+  ],
+  "author": "Seu Nome",
+  "license": "MIT",
+  "main": "vite.config.js"
+}
