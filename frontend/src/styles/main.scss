@@ -27,6 +27,7 @@ body {
   line-height: 1.4;
   color: var(--text-color);
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 .app {
@@ -37,11 +38,26 @@ body {
 
 .header {
   position: absolute;
+  box-sizing: border-box;
   display: flex;
+  align-items: center;
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  padding: 20px;
+  padding: 10px 20px;
+
+  .auth-image {
+    max-width: 100%;
+    width: auto;
+    display: block;
+
+    &.vortex {
+      height: 80px;
+    }
+    &.unifor {
+      height: 50px;
+    }
+  }
 }
 .title {
   font-size: var(--text-4xl);

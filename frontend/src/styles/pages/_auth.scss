@@ -3,64 +3,89 @@
   justify-content: space-between;
   height: 100%;
 
-    .auth-container { 
+  .auth-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex: 1;
+
+    .auth-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      gap: 28px;
+      width: 420px;
+
+      @media (max-width: 768px) {
+        width: 90%;
+      }
+
+      .auth-title {
         display: flex;
-        align-items: center;
-        justify-content: center;
         flex-direction: column;
-        flex: 1;
+        gap: 8px;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
 
-        .auth-wrapper {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-
-            .auth-title {
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                align-items: flex-start;
-                justify-content: flex-start;
-
-
-            }
-
-            .auth-form{
-                display: flex;
-                flex-direction: column;
-                gap: 16px;
-            }
+        .auth-link {
+          font-size: var(--text-md);
+          font-weight: var(--font-normal);
+          color: var(--text-color);
         }
+
+        .auth-link-primary {
+          font-size: var(--text-md);
+          font-weight: var(--font-semibold);
+          color: var(--btn-bg-color);
+          text-decoration: none;
+        }
+      }
+
+      .auth-form {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+
+        .btn-primary {
+          width: 100%;
+          max-width: 420px;
+        }
+      }
     }
+  }
 }
-
-
 
 .auth-side {
   flex: 1;
   background-color: var(--primary-color);
   display: grid;
   place-items: center;
+  padding: 30px;
 
   .auth-image {
     max-width: 100%;
     height: 620px;
   }
 
-  .auth-side-content   {
-        color: #fff;
-        font-style: normal;
-        line-height: 1.2;
-        max-width: 551px;
-        
-        h3{
-            font-size: var(--text-5xl);
-            font-weight: var(--font-medium);
-        }
+  .auth-side-content {
+    color: #fff;
+    font-style: normal;
+    line-height: 1.2;
+    max-width: 551px;
 
-        span{
-            font-size: var(--text-xl);
-            font-weight: var(--font-normal);
-        }
+    h3 {
+      font-size: var(--text-5xl);
+      font-weight: var(--font-medium);
     }
+
+    span {
+      font-size: var(--text-xl);
+      font-weight: var(--font-normal);
+    }
+  }
 }

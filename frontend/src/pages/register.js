@@ -1,16 +1,16 @@
 import { Header } from '../components/header';
 import { AuthBranding } from '../components/auth-branding';
 
-export default function Login() {
+export default function Register() {
   return `
         <div class="auth-page"> 
             ${Header()}
 
             <div class="auth-container">
                 <div class="auth-title">
-                    <h1>Entrar</h1>
+                    <h1>Registrar</h1>
 
-                    <span class="auth-description">Caso não tenha uma conta, <a href="#/register"><b>Registre-se aqui</b></a>.</span>
+                    <span class="auth-description">Caso já tenha uma conta, <a href="#/login"><b>Faça login aqui</b></a>.</span>
                 </div>
 
                 <form id="login-form" class="auth-form">

@@ -1,8 +1,9 @@
 export function Header() {
   return `
         <header class="header">
-           <h1 class="header-title">VORTEX</h1>
-           <h1 class="header-title">VRP Unifor</h1>
+            <img class="auth-image vortex"src="/vortexLogo.png" />
+            <img class="auth-image unifor"src="/vrpLogo.png" />
+
         </header>
     `;
 }

@@ -1,5 +1,5 @@
 export function AuthBranding() {
-    return `
+  return `
         <div class="auth-side font-white">
             <img class="auth-image"src="/authImage.png" />
 
@@ -10,5 +10,3 @@ export function AuthBranding() {
         </div>
     `;
 }
-
-    

@@ -11,7 +11,8 @@ export default function Login() {
                     <div class="auth-title">
                         <h1 class="fw-medium text-3xl">Entrar</h1>
 
-                        <span class="auth-link">Caso não tenha uma conta, <a href="#/register"><b>Registre-se aqui</b></a>.</span>
+                        <span class="auth-link">Caso não tenha uma conta, </span>
+                        <a href="/register" class="auth-link-primary">Registre-se aqui</a>
                     </div>
 
                     <form id="login-form" class="auth-form">
