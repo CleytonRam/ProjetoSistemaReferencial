@@ -8,9 +8,11 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "serve": "vite preview --port 4173"
+    "serve": "vite preview --port 4173",
+    "format": "prettier --write ."
   },
   "devDependencies": {
+    "prettier": "^3.6.2",
     "sass": "^1.93.2",
     "sass-embedded": "^1.93.2",
     "vite": "^7.1.9"

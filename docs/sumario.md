@@ -22,7 +22,7 @@ tags: [toc, docs]
 - Exemplo de chamadas: [`./api/http-examples.http`](./api/http-examples.http)
 
 ## 4. Implementação
-- **API (C#)** — ASP.NET Core Web API + EF Core + **SQL Server**  
+- **API (C#)** — ASP.NET Core Web API + EF Core + SQL Server
   Entidade: `User(id, name, email*, passwordHash, refCode*, points, referredById?)`
 - **Front (HTML/JS/CSS)** — Páginas `/register` e `/profile`; `API_BASE_URL` centralizado no JS
 

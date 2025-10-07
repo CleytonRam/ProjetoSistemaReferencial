@@ -1,6 +1,5 @@
-// Base
 @use 'base/reset';
-@use 'base/variables';
+@use 'base/variables' as *;
 @use 'base/typography';
 @use 'base/base';
 
@@ -16,3 +15,40 @@
 // Pages
 @use 'pages/auth';
 @use 'pages/profile';
+
+* {
+  font-family: var(--font-montserrat);
+  letter-spacing: 0.6;
+}
+
+body {
+  margin: 0;
+  font-weight: var(--font-normal);
+  line-height: 1.4;
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.app {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+}
+
+.header {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px;
+}
+.title {
+  font-size: var(--text-4xl);
+  font-weight: var(--font-semibold);
+  color: var(--bg-white);
+  line-height: 1.1;
+  font-style: normal;
+  margin: 0;
+  letter-spacing: 0.06rem;
+}

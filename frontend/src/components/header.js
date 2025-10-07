@@ -1,13 +1,8 @@
 export function Header() {
-    return `
+  return `
         <header class="header">
-            <div class="container">
-                <h1 class="logo">VORTEX</h1>
-                <nav class="nav">
-                    <a href="#/profile" class="nav-link">Meu Perfil</a>
-                    <button id="logout-btn" class="btn-secondary">Sair</button>
-                </nav>
-            </div>
+           <h1 class="header-title">VORTEX</h1>
+           <h1 class="header-title">VRP Unifor</h1>
         </header>
     `;
 }

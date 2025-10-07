@@ -24,18 +24,18 @@ router.init();
 
 // Inicialização da aplicação
 document.addEventListener('DOMContentLoaded', () => {
-    console.log('🚀 DOM carregado - App inicializando');
-    
-    // Verificação adicional de redirecionamento
-    const currentPath = window.location.hash.slice(1);
-    if (shouldRedirectToLogin(currentPath)) {
-        console.log('🔍 Verificação: Redirecionando rota raiz para login');
-        window.location.hash = '/login';
-    }
-    
-    // Remover loading
-    const loading = document.querySelector('.loading');
-    if (loading) {
-        loading.style.display = 'none';
-    }
+  console.log('🚀 DOM carregado - App inicializando');
+
+  // Verificação adicional de redirecionamento
+  const currentPath = window.location.hash.slice(1);
+  if (shouldRedirectToLogin(currentPath)) {
+    console.log('🔍 Verificação: Redirecionando rota raiz para login');
+    window.location.hash = '/login';
+  }
+
+  // Remover loading
+  const loading = document.querySelector('.loading');
+  if (loading) {
+    loading.style.display = 'none';
+  }
 });

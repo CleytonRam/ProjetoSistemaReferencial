@@ -1,8 +1,8 @@
-import { Header } from '../components/Header.js';
-import { Footer } from '../components/Footer.js';
+import { Header } from '../components/header.js';
+import { Footer } from '../components/footer.js';
 
 export default function Profile() {
-    return `
+  return `
         ${Header()}
         
         <main class="profile-page">
